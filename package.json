@@ -5,6 +5,7 @@
     "ng": "ng",
     "build:element": "npm run build -- --prod --single-bundle true",
     "build:element:mfe1": "npm run build:element --project mfe1",
+    "build:element:mfe2": "npm run build:element --project mfe2",
     "build:elements": "run-p build:element:**",
     "start": "run-p \"start:* -- --prod --single-bundle true\"",
     "build": "ng build",
@@ -12,6 +13,7 @@
     "prestart": "ngcc",
     "lint": "ng lint",
     "start:mfe1": "ng serve --project mfe1",
+    "start:mfe2": "ng serve --project mfe2",
     "e2e": "ng e2e"
   },
   "private": true,
