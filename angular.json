@@ -141,7 +141,7 @@
       "prefix": "app",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:browser",
+          "builder": "ngx-build-plus:browser",
           "options": {
             "outputPath": "dist/mfe1",
             "index": "projects/mfe1/src/index.html",
@@ -156,7 +156,8 @@
             "styles": [
               "projects/mfe1/src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [],
+            "extraWebpackConfig": "projects/mfe1/webpack.config.js"
           },
           "configurations": {
             "production": {
@@ -184,18 +185,22 @@
                   "maximumWarning": "2kb",
                   "maximumError": "4kb"
                 }
-              ]
+              ],
+              "extraWebpackConfig": "projects/mfe1/webpack.prod.config.js"
             }
           }
         },
         "serve": {
-          "builder": "@angular-devkit/build-angular:dev-server",
+          "builder": "ngx-build-plus:dev-server",
           "options": {
-            "browserTarget": "mfe1:build"
+            "browserTarget": "mfe1:build",
+            "port": 4210,
+            "extraWebpackConfig": "projects/mfe1/webpack.config.js"
           },
           "configurations": {
             "production": {
-              "browserTarget": "mfe1:build:production"
+              "browserTarget": "mfe1:build:production",
+              "extraWebpackConfig": "projects/mfe1/webpack.prod.config.js"
             }
           }
         },
@@ -206,7 +211,7 @@
           }
         },
         "test": {
-          "builder": "@angular-devkit/build-angular:karma",
+          "builder": "ngx-build-plus:karma",
           "options": {
             "main": "projects/mfe1/src/test.ts",
             "polyfills": "projects/mfe1/src/polyfills.ts",
@@ -219,7 +224,8 @@
             "styles": [
               "projects/mfe1/src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [],
+            "extraWebpackConfig": "projects/mfe1/webpack.config.js"
           }
         },
         "lint": {
