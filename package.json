@@ -16,6 +16,7 @@
     "start:mfe1": "ng serve --project mfe1",
     "start:mfe2": "ng serve --project mfe2",
     "start:mfe3": "ng serve --project mfe3",
+    "start:shell": "ng serve --project shell",
     "e2e": "ng e2e"
   },
   "private": true,
