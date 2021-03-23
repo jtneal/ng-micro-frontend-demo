@@ -399,7 +399,7 @@
       "prefix": "app",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:browser",
+          "builder": "ngx-build-plus:browser",
           "options": {
             "outputPath": "dist/mfe3",
             "index": "projects/mfe3/src/index.html",
@@ -414,7 +414,8 @@
             "styles": [
               "projects/mfe3/src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [],
+            "extraWebpackConfig": "projects/mfe3/webpack.config.js"
           },
           "configurations": {
             "production": {
@@ -442,18 +443,22 @@
                   "maximumWarning": "2kb",
                   "maximumError": "4kb"
                 }
-              ]
+              ],
+              "extraWebpackConfig": "projects/mfe3/webpack.prod.config.js"
             }
           }
         },
         "serve": {
-          "builder": "@angular-devkit/build-angular:dev-server",
+          "builder": "ngx-build-plus:dev-server",
           "options": {
-            "browserTarget": "mfe3:build"
+            "browserTarget": "mfe3:build",
+            "port": 4230,
+            "extraWebpackConfig": "projects/mfe3/webpack.config.js"
           },
           "configurations": {
             "production": {
-              "browserTarget": "mfe3:build:production"
+              "browserTarget": "mfe3:build:production",
+              "extraWebpackConfig": "projects/mfe3/webpack.prod.config.js"
             }
           }
         },
@@ -464,7 +469,7 @@
           }
         },
         "test": {
-          "builder": "@angular-devkit/build-angular:karma",
+          "builder": "ngx-build-plus:karma",
           "options": {
             "main": "projects/mfe3/src/test.ts",
             "polyfills": "projects/mfe3/src/polyfills.ts",
@@ -477,7 +482,8 @@
             "styles": [
               "projects/mfe3/src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [],
+            "extraWebpackConfig": "projects/mfe3/webpack.config.js"
           }
         },
         "lint": {
